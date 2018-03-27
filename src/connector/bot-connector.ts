@@ -1,5 +1,5 @@
 import * as builder from 'botbuilder';
-import { CHAT_APP_ID, CHAT_APP_PASSWORD } from '../environment/variables';
+import { MICROSOFT_APP_ID, MICROSOFT_APP_PASSWORD } from '../environment/variables';
 import { cosmosDbStorage } from './cosmos-db.connector';
 
 // Creating a chat connector to Bot Framework Service
@@ -10,11 +10,12 @@ export class Bot {
 
     constructor() {
         this.connector = new builder.ChatConnector({
-            appId: CHAT_APP_ID,
-            appPassword: CHAT_APP_PASSWORD,
+            appId: MICROSOFT_APP_ID,
+            appPassword: MICROSOFT_APP_PASSWORD,
         });
-        this.bot = new builder.UniversalBot(this.connector);
-        // this.bot.set('storage', cosmosDbStorage);
+        this.bot = new builder
+            .UniversalBot(this.connector)
+            .set('storage', cosmosDbStorage);
     }
 
     get Connector() {

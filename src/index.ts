@@ -3,7 +3,7 @@ import { Bot } from './connector/bot-connector';
 import { Luis } from './connector/luis-connector';
 import { basicQnAMakerDialog } from './connector/qna-connector';
 import * as luisConfig from './environment/luis-config';
-import { CHAT_APP_ID, CHAT_APP_PASSWORD } from './environment/variables';
+import { MICROSOFT_APP_ID, MICROSOFT_APP_PASSWORD } from './environment/variables';
 import { BotServer } from './infrastructure/server';
 
 const luis = new Luis();
