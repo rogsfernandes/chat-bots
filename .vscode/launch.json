@@ -10,6 +10,22 @@
             "name": "Launch Program",
             "program": "${workspaceFolder}/lib/index.js",
             "port": 9229
+        },
+        {
+            "type": "node",
+            "request": "attach",
+            "name": "Attach by Process ID",
+            "processId": "${command:PickProcess}"
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Launch with ts-node",
+            "program": "${workspaceFolder}/node_modules/ts-node/dist/bin.js",
+            "args": [
+                "${workspaceFolder}/src/index.ts"
+            ],
+            "protocol": "inspector"
         }
     ]
 }
