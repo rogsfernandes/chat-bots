@@ -13,3 +13,9 @@ export const LUIS_SUBSCRIPTION_KEY = process.env.LUIS_SUBSCRIPTION_KEY || 'f3e70
 export const LUIS_APP_ID = process.env.LUIS_APP_ID || '63c88a43-0a71-43d5-b9b8-6adb694be5a6';
 export const LUIS_HOST = process.env.LUIS_HOST || 'https://westus.api.cognitive.microsoft.com/';
 export const LUIS_ENDPOINT = process.env.LUIS_ENDPOINT || 'luis/v2.0/apps/';
+
+// CosmosDB access
+export const COSMOS_DB_KEY = process.env.COSMOS_DB_KEY || 'FA5YPM0CLc9vYHNCtWeSpBH3cdz5wmXVgbLbQMHbfHMdzM97KnT8tBV3yTOkg1DVknnTzhUsgXFiP6e7r3J5dA====';
+export const COSMOS_DB_HOST = process.env.COSMOS_DB_HOST || 'bf9f5bc1-0ee0-4-231-b9ee.documents.azure.com';
+export const COSMOS_DB_NAME = process.env.COSMOS_DB_NAME || 'botdocs';
+export const COSMOS_DB_COLLECTION = process.env.COSMOS_DB_COLLECTION || 'botdata';
