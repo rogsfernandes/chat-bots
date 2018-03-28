@@ -8,7 +8,7 @@
             "type": "node",
             "request": "launch",
             "name": "Launch Program",
-            "program": "${workspaceFolder}/lib/index.js",
+            "program": "${workspaceFolder}/app.js",
             "port": 9229
         },
         {
@@ -23,7 +23,7 @@
             "name": "Launch with ts-node",
             "program": "${workspaceFolder}/node_modules/ts-node/dist/bin.js",
             "args": [
-                "${workspaceFolder}/src/index.ts"
+                "${workspaceFolder}/app.ts"
             ],
             "protocol": "inspector"
         }
