@@ -5,6 +5,7 @@ import { basicQnAMakerDialog } from './src/connector/qna-connector';
 import * as luisConfig from './src/environment/luis-config';
 import { MICROSOFT_APP_ID, MICROSOFT_APP_PASSWORD } from './src/environment/variables';
 import { BotServer } from './src/infrastructure/server';
+import { AboutHandler } from './src/intent-handler/about-intent.handler';
 
 const luis = new Luis();
 const bot = new Bot();
@@ -26,7 +27,7 @@ intents
         if (args.entities && args.entities.length) {
             let text = `Esse é o seu pedido?`;
             args.entities.forEach((entity: any, index: number, array: any) => {
-                text += ` * ${entity.type}, ${entity.entity}*`;
+                text += ` *${entity.type}, ${entity.entity}*`;
             });
             session.send(text);
         } else {
@@ -34,7 +35,7 @@ intents
         }
     })
     .matches('sobre', (session, args) => {
-        session.send('Eu sou seu Bot de Recomendação de Comidas.');
+        return new AboutHandler(session).handleIntent(session, args);
     })
     .onDefault((session, args) => {
         session.send('Não consegui entender o que quis dizer. Posso te ajudar fazendo uma recomendação de comida?');
