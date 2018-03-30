@@ -1,11 +1,11 @@
 import * as builder from 'botbuilder';
-import { Bot } from './src/connector/bot-connector';
-import { Luis } from './src/connector/luis-connector';
-import { basicQnAMakerDialog } from './src/connector/qna-connector';
-import * as luisConfig from './src/environment/luis-config';
-import { MICROSOFT_APP_ID, MICROSOFT_APP_PASSWORD } from './src/environment/variables';
-import { BotServer } from './src/infrastructure/server';
-import { AboutHandler } from './src/intent-handler/about-intent.handler';
+import { Bot } from './connector/bot-connector';
+import { Luis } from './connector/luis-connector';
+import { basicQnAMakerDialog } from './connector/qna-connector';
+import * as luisConfig from './environment/luis-config';
+import { MICROSOFT_APP_ID, MICROSOFT_APP_PASSWORD } from './environment/variables';
+import { BotServer } from './infrastructure/server';
+import { AboutHandler } from './intent-handler/about-intent.handler';
 
 const luis = new Luis();
 const bot = new Bot();
