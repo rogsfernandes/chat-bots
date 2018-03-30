@@ -15,7 +15,7 @@ export const LUIS_HOST = process.env.LUIS_HOST || 'https://westus.api.cognitive.
 export const LUIS_ENDPOINT = process.env.LUIS_ENDPOINT || 'luis/v2.0/apps/';
 
 // CosmosDB access
-export const COSMOS_DB_KEY = process.env.COSMOS_DB_KEY || '3FrnOVhGfAlaYoSPWzjOz4Go8EINHT7dfFrgatlRpvhphXq6atoPzQO2uk80AIK8jOf96G0Efasd95fldrLaSQ==';
-export const COSMOS_DB_HOST = process.env.COSMOS_DB_HOST || 'https://bf9f5bc1-0ee0-4-231-b9ee.documents.azure.com:443/';
-export const COSMOS_DB_NAME = process.env.COSMOS_DB_NAME || 'botdocs';
+export const COSMOS_DB_KEY = process.env.COSMOS_DB_KEY || 'anyM57WMPBfwxoB5wRuEUOs7IqMc07wREOVo0rposIwvEsEVAWkukDto2L0DQhs9S6Kx248NlsRmSsvOVHw2sA==';
+export const COSMOS_DB_HOST = process.env.COSMOS_DB_HOST || 'https://pizzabot.table.cosmosdb.azure.com:443/';
+export const COSMOS_DB_ACCOUNT_NAME = process.env.COSMOS_DB_NAME || 'pizzabot';
 export const COSMOS_DB_COLLECTION = process.env.COSMOS_DB_COLLECTION || 'botdata';

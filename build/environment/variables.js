@@ -13,7 +13,7 @@ exports.LUIS_APP_ID = process.env.LUIS_APP_ID || '63c88a43-0a71-43d5-b9b8-6adb69
 exports.LUIS_HOST = process.env.LUIS_HOST || 'https://westus.api.cognitive.microsoft.com/';
 exports.LUIS_ENDPOINT = process.env.LUIS_ENDPOINT || 'luis/v2.0/apps/';
 // CosmosDB access
-exports.COSMOS_DB_KEY = process.env.COSMOS_DB_KEY || '3FrnOVhGfAlaYoSPWzjOz4Go8EINHT7dfFrgatlRpvhphXq6atoPzQO2uk80AIK8jOf96G0Efasd95fldrLaSQ==';
-exports.COSMOS_DB_HOST = process.env.COSMOS_DB_HOST || 'https://bf9f5bc1-0ee0-4-231-b9ee.documents.azure.com:443/';
-exports.COSMOS_DB_NAME = process.env.COSMOS_DB_NAME || 'botdocs';
+exports.COSMOS_DB_KEY = process.env.COSMOS_DB_KEY || 'anyM57WMPBfwxoB5wRuEUOs7IqMc07wREOVo0rposIwvEsEVAWkukDto2L0DQhs9S6Kx248NlsRmSsvOVHw2sA==';
+exports.COSMOS_DB_HOST = process.env.COSMOS_DB_HOST || 'https://pizzabot.table.cosmosdb.azure.com:443/';
+exports.COSMOS_DB_ACCOUNT_NAME = process.env.COSMOS_DB_NAME || 'pizzabot';
 exports.COSMOS_DB_COLLECTION = process.env.COSMOS_DB_COLLECTION || 'botdata';
