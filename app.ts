@@ -15,30 +15,45 @@ const intents = bot.getLuisIntents(luis.LuisModelUrl);
 intents
     .matches('apresentacao', (session, args) => {
         if (args.entities && args.entities.length) {
-            session.send(`Olá, usuário ${args.entities[0].entity}, seja bem vindo!`);
+            session.send(`Olá, usuário **${args.entities[0].entity}**, seja bem vindo!`);
         } else {
-            session.send('Bom dia, boa tarde e boa noite! Me informe seu ID de usuário para que eu faça recomendações de comida para você.');
+            session.send('Olá! Me informe seu ID de usuário para que eu te reconheça.');
         }
     })
     .matches('cumprimento', (session, args) => {
-        session.send('Olá! Tudo bem? Sou um bot de recomendação de comidas.');
+        session.send('Olá! Tudo bem? Sou o PizzaBot, e eu amo pizzas! (•ω•)');
     })
     .matches('recomendar-comida', (session, args) => {
         if (args.entities && args.entities.length) {
-            let text = `Esse é o seu pedido?`;
-            args.entities.forEach((entity: any, index: number, array: any) => {
-                text += ` *${entity.type}, ${entity.entity}*`;
-            });
-            session.send(text);
+            const pizza = args.entities.find((entity: any) => entity.entity === 'pizza');
+            if (pizza) {
+                const flavor = args.entities.find((entity: any) => entity.type === 'sabor').entity;
+                const pizzaCard = new builder.HeroCard(session)
+                    .title(`**Pizza de ${flavor}**`)
+                    .subtitle('Saiba mais da pizza que você mais gosta!')
+                    .text('Link da Pizza que você escolheu:')
+                    .buttons([
+                        builder.CardAction.openUrl(session, `https://www.google.com.br/search?q=pizza+de+${flavor}&source=lnms&tbm=isch&sa=X&ved=0ahUKEwjysNjIhJXaAhWEHpAKHWulCBMQ_AUICigB&biw=1366&bih=637`, 'Saiba mais!'),
+                    ]);
+                const msg = new builder.Message(session).addAttachment(pizzaCard);
+                session.send(msg);
+            } else {
+                let text = 'Esse é o seu pedido!\n\n';
+                args.entities.forEach((entity: any, index: any, array: any) => {
+                    text += ` * ${entity.type}: ${entity.entity} \n\n`;
+                });
+
+                session.send(text);
+            }
         } else {
-            session.send('Me fale sobre o que você gosta de comer que te faço uma recomendação');
+            session.send('Me fale de qual pizza voçê gosta que eu anoto o pedido!');
         }
     })
     .matches('sobre', (session, args) => {
         return new AboutHandler(session).handleIntent(session, args);
     })
     .onDefault((session, args) => {
-        session.send('Não consegui entender o que quis dizer. Posso te ajudar fazendo uma recomendação de comida?');
+        session.send('Não consegui entender o que quis dizer. Gostaria de saber mais da pizza que gosta? \n\nMe fale qual sua pizza favorita que mando link!');
     });
 
 bot.createNewDialog('/', intents);
