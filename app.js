@@ -11,25 +11,25 @@ const intents = bot.getLuisIntents(luis.LuisModelUrl);
 intents
     .matches('apresentacao', (session, args) => {
         if (args.entities && args.entities.length) {
-            session.send(`Olá, usuário ${args.entities[0].entity}, seja bem vindo!`);
+            session.send(`Olá, usuário **${args.entities[0].entity}**, seja bem vindo!`);
         }
         else {
-            session.send('Bom dia, boa tarde e boa noite! Me informe seu ID de usuário para que eu faça recomendações de comida para você.');
+            session.send('Olá! Me informe seu ID de usuário para que eu te reconheça.');
         }
     })
     .matches('cumprimento', (session, args) => {
-        session.send('Olá! Tudo bem? Sou um bot de recomendação de comidas.');
+        session.send('Olá! Tudo bem? Sou o PizzaBot, e eu amo pizzas! (•ω•)');
     })
     .matches('recomendar-comida', (session, args) => {
         if (args.entities && args.entities.length) {
-            let text = `Esse é o seu pedido?`;
+            let text = 'Esse é o seu pedido?\n\n';
             args.entities.forEach((entity, index, array) => {
-                text += ` *${entity.type}, ${entity.entity}*`;
+                text += ` * ${entity.type}: ${entity.entity}`;
             });
             session.send(text);
         }
         else {
-            session.send('Me fale sobre o que você gosta de comer que te faço uma recomendação');
+            session.send('Me fale de qual pizza voçê gosta que eu anoto o pedido!');
         }
     })
     .matches('sobre', (session, args) => {

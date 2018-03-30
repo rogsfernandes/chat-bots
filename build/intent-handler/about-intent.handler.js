@@ -5,15 +5,15 @@ class AboutHandler {
     constructor(session) {
         this.name = 'sobre';
         this.presentationCard = new builder.HeroCard(session)
-            .title('FoodBot')
-            .subtitle('Sou o Bot de Recomendação de Comidas')
-            .text('Sou um chat bot que consegue anotar seus pedidos e recomendar o que comer com base no que você gosta.')
+            .title('# PizzaBot')
+            .subtitle('Sou o Bot que ama Pizzas!')
+            .text('Gostaria de pedir uma pizza? Eu consigo te mandar links da pizza que você gosta!')
             .images([
-            builder.CardImage.create(session, 'https://d30y9cdsu7xlg0.cloudfront.net/png/815603-200.png'),
-        ])
+                builder.CardImage.create(session, 'http://www.delonghi.com/Global/recipes/multifry/3.jpg'),
+            ])
             .buttons([
-            builder.CardAction.openUrl(session, 'https://www.google.com.br/search?q=chat+bot&oq=chat+bot&aqs=chrome..69i57j0j69i60l3j0.994j0j7&sourceid=chrome&ie=UTF-8', 'Leia mais'),
-        ]);
+                builder.CardAction.openUrl(session, 'https://www.google.com.br/search?q=pizza&source=lnms&sa=X&ved=0ahUKEwj02biHgpXaAhWBEJAKHfE8BsUQ_AUICSgA&biw=1366&bih=637&dpr=1', 'Leia mais'),
+            ]);
     }
     handleIntent(session, args) {
         const msg = new builder.Message(session).addAttachment(this.presentationCard);
